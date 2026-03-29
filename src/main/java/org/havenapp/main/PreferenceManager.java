@@ -99,6 +99,10 @@ public class PreferenceManager {
     public static final String CONFIG_BASE_STORAGE = "config_base_storage";
     private static final String CONFIG_BASE_STORAGE_DEFAULT = "/haven";
 
+    public static final String VIDEO_UPLOAD_ACTIVE = "video_upload_active";
+    public static final String VIDEO_UPLOAD_URL = "video_upload_url";
+    public static final String VIDEO_UPLOAD_TOKEN = "video_upload_token";
+
     // keeping the key value same for data migration.
     static final String REMOTE_PHONE_NUMBER = "sms_number";
     static final String REMOTE_NOTIFICATION_ACTIVE = "remote_notification_active";
@@ -420,6 +424,33 @@ public class PreferenceManager {
         return context.getString(R.string.hearbeat_monitor_initial_message_2);
     }
 
+
+    public boolean getVideoUploadActive() {
+        return appSharedPrefs.getBoolean(VIDEO_UPLOAD_ACTIVE, false);
+    }
+
+    public void setVideoUploadActive(boolean active) {
+        prefsEditor.putBoolean(VIDEO_UPLOAD_ACTIVE, active);
+        prefsEditor.commit();
+    }
+
+    public String getVideoUploadUrl() {
+        return appSharedPrefs.getString(VIDEO_UPLOAD_URL, "");
+    }
+
+    public void setVideoUploadUrl(String url) {
+        prefsEditor.putString(VIDEO_UPLOAD_URL, url);
+        prefsEditor.commit();
+    }
+
+    public String getVideoUploadToken() {
+        return appSharedPrefs.getString(VIDEO_UPLOAD_TOKEN, "");
+    }
+
+    public void setVideoUploadToken(String token) {
+        prefsEditor.putString(VIDEO_UPLOAD_TOKEN, token);
+        prefsEditor.commit();
+    }
 
     /**
      * Set the {@link org.havenapp.main.model.Event#startTime} for the ongoing event.

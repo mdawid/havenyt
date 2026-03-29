@@ -161,4 +161,13 @@
     <string name="reset_configuration_question">Reset Signal Configuration?</string>
     <string name="reset_configuration_desc">This will clear out all Signal configurations. You will have to register and verify again to use Signal services in the future. Are you sure?</string>
     <string name="run_disk_cleanup">Clean deleted logs from device</string>
+
+    <string name="video_upload_category">Video Upload</string>
+    <string name="video_upload_enable">Upload videos to server</string>
+    <string name="video_upload_url_title">Server URL</string>
+    <string name="video_upload_url_summary">Upload endpoint (e.g. https://your-server/upload)</string>
+    <string name="video_upload_url_dialog">Enter the full upload URL</string>
+    <string name="video_upload_token_title">Auth Token</string>
+    <string name="video_upload_token_summary">Bearer token for authentication</string>
+    <string name="video_upload_token_dialog">Enter the auth token from your server</string>
 </resources>

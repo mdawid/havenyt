@@ -2,11 +2,7 @@ buildscript {
     ext.kotlin_version = '1.5.21'
     repositories {
         google()
-        jcenter()
-
-        maven {
-            url "https://dl.bintray.com/kotlin/kotlin-eap/"
-        }
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
@@ -37,11 +33,8 @@ apply plugin: 'kotlin-kapt'
 
 repositories {
     google()
-    jcenter()
+    mavenCentral()
     maven { url 'https://jitpack.io' }
-    maven {
-        url "https://dl.bintray.com/kotlin/kotlin-eap/"
-    }
 }
 
 allprojects {
@@ -50,7 +43,7 @@ allprojects {
         version_number = getVersionName()
         group_info = "haven"
         buildToolsVersion = "30.0.2"
-        minSdkVersion = 16
+        minSdkVersion = 19
         targetSdkVersion = 30
     }
 
@@ -92,7 +85,7 @@ android {
         versionCode 2001
         versionName getVersionName()
         archivesBaseName = "Haven-$versionName"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         ndkVersion '21.3.6528147'
         //ndkPath '/home/n8fr8/Android/Ndk'
@@ -169,18 +162,17 @@ dependencies {
     implementation 'info.guardianproject.netcipher:netcipher:2.1.0'
     implementation 'org.nanohttpd:nanohttpd-webserver:2.3.1'
     implementation 'me.angrybyte.picker:picker:1.3.1'
-    implementation 'com.github.stfalcon:frescoimageviewer:0.5.0'
+    implementation 'com.github.stfalcon-studio:StfalconImageViewer:1.0.1'
     implementation 'com.facebook.fresco:fresco:2.0.0'
     implementation 'com.github.derlio:audio-waveform:v1.0.1'
-    implementation 'com.maxproj.simplewaveform:app:1.0.0'
+    implementation 'com.github.maxyou:SimpleWaveform:7c09b010dd'
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.24'
     implementation('com.mikepenz:aboutlibraries:7.0.3@aar') {
         transitive = true
     }
 
-    implementation 'com.github.halilozercan:BetterVideoPlayer:1.1.0'
+    implementation 'com.github.halilozercan:BetterVideoPlayer:2.0.0-alpha01'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
-    implementation 'io.github.silvaren:easyrs:0.5.3'
     // jcodec's pure-java video coding replaced by android system encoding
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.21"
 
@@ -209,7 +201,9 @@ dependencies {
     implementation 'com.evernote:android-job:1.4.2'
 
     // new camera view: https://github.com/natario1/CameraView
-    implementation 'com.otaliastudios:cameraview:2.6.4'
+    implementation 'com.otaliastudios:cameraview:2.7.2'
 
+    // HTTP client for video upload (3.12.x for minSdk 16 compat)
+    implementation 'com.squareup.okhttp3:okhttp:3.12.13'
 
 }
