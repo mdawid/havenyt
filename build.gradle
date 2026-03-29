@@ -2,11 +2,7 @@ buildscript {
     ext.kotlin_version = '1.5.21'
     repositories {
         google()
-        jcenter()
-
-        maven {
-            url "https://dl.bintray.com/kotlin/kotlin-eap/"
-        }
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
@@ -37,11 +33,8 @@ apply plugin: 'kotlin-kapt'
 
 repositories {
     google()
-    jcenter()
+    mavenCentral()
     maven { url 'https://jitpack.io' }
-    maven {
-        url "https://dl.bintray.com/kotlin/kotlin-eap/"
-    }
 }
 
 allprojects {
