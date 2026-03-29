@@ -203,5 +203,7 @@ dependencies {
     // new camera view: https://github.com/natario1/CameraView
     implementation 'com.otaliastudios:cameraview:2.7.2'
 
+    // HTTP client for video upload (3.12.x for minSdk 16 compat)
+    implementation 'com.squareup.okhttp3:okhttp:3.12.13'
 
 }

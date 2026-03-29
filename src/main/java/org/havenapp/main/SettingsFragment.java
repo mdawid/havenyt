@@ -130,6 +130,24 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             findPreference(PreferenceManager.REMOTE_PHONE_NUMBER).setSummary(R.string.sms_dialog_summary);
         }
 
+        if (preferences.getVideoUploadActive()) {
+            ((SwitchPreference) findPreference(PreferenceManager.VIDEO_UPLOAD_ACTIVE)).setChecked(true);
+        }
+
+        if (checkValidString(preferences.getVideoUploadUrl())) {
+            ((EditTextPreference) findPreference(PreferenceManager.VIDEO_UPLOAD_URL)).setText(preferences.getVideoUploadUrl().trim());
+            findPreference(PreferenceManager.VIDEO_UPLOAD_URL).setSummary(preferences.getVideoUploadUrl().trim());
+        } else {
+            findPreference(PreferenceManager.VIDEO_UPLOAD_URL).setSummary(R.string.video_upload_url_summary);
+        }
+
+        if (checkValidString(preferences.getVideoUploadToken())) {
+            ((EditTextPreference) findPreference(PreferenceManager.VIDEO_UPLOAD_TOKEN)).setText(preferences.getVideoUploadToken().trim());
+            findPreference(PreferenceManager.VIDEO_UPLOAD_TOKEN).setSummary(R.string.bullets);
+        } else {
+            findPreference(PreferenceManager.VIDEO_UPLOAD_TOKEN).setSummary(R.string.video_upload_token_summary);
+        }
+
         if (preferences.getRemoteAccessActive()) {
             ((SwitchPreference) findPreference(PreferenceManager.REMOTE_ACCESS_ACTIVE)).setChecked(true);
         }
@@ -323,6 +341,9 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             app.stopServer();
             app.startServer();
         }
+
+        boolean videoUploadActive = ((SwitchPreference) findPreference(PreferenceManager.VIDEO_UPLOAD_ACTIVE)).isChecked();
+        preferences.setVideoUploadActive(videoUploadActive);
 
         preferences.setVoiceVerification(false);
 
@@ -546,6 +567,37 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Shared
             }
             case PreferenceManager.CONFIG_BASE_STORAGE: {
                 setDefaultStoragePath();
+                break;
+            }
+            case PreferenceManager.VIDEO_UPLOAD_ACTIVE: {
+                boolean uploadActive = ((SwitchPreference) findPreference(PreferenceManager.VIDEO_UPLOAD_ACTIVE)).isChecked();
+                preferences.setVideoUploadActive(uploadActive);
+                break;
+            }
+            case PreferenceManager.VIDEO_UPLOAD_URL: {
+                EditTextPreference preference = findPreference(PreferenceManager.VIDEO_UPLOAD_URL);
+                assert preference != null;
+                String text = preference.getText();
+                if (checkValidString(text)) {
+                    preferences.setVideoUploadUrl(text.trim());
+                    preference.setSummary(text.trim());
+                } else {
+                    preferences.setVideoUploadUrl("");
+                    preference.setSummary(R.string.video_upload_url_summary);
+                }
+                break;
+            }
+            case PreferenceManager.VIDEO_UPLOAD_TOKEN: {
+                EditTextPreference preference = findPreference(PreferenceManager.VIDEO_UPLOAD_TOKEN);
+                assert preference != null;
+                String text = preference.getText();
+                if (checkValidString(text)) {
+                    preferences.setVideoUploadToken(text.trim());
+                    preference.setSummary(R.string.bullets);
+                } else {
+                    preferences.setVideoUploadToken("");
+                    preference.setSummary(R.string.video_upload_token_summary);
+                }
                 break;
             }
         }

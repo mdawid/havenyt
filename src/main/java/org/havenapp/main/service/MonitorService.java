@@ -358,6 +358,12 @@ public class MonitorService extends Service {
                 .getEventTriggerDAO().insert(eventTrigger);
         eventTrigger.setId(eventTriggerId);
 
+        if (alertType == EventTrigger.CAMERA_VIDEO
+                && mPrefs.getVideoUploadActive()
+                && !TextUtils.isEmpty(mPrefs.getVideoUploadUrl())) {
+            VideoUploadTask.upload(value, mPrefs.getVideoUploadUrl(), mPrefs.getVideoUploadToken());
+        }
+
         if (doNotification) {
 
             mLastNotification = new Date();

@@ -178,4 +178,32 @@
             android:title="@string/password" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        android:title="@string/video_upload_category">
+
+        <SwitchPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"
+            android:key="video_upload_active"
+            android:title="@string/video_upload_enable" />
+
+        <EditTextPreference
+            app:iconSpaceReserved="false"
+            android:dialogLayout="@layout/pref_dialog_edit_text"
+            android:dialogMessage="@string/video_upload_url_dialog"
+            android:key="video_upload_url"
+            android:summary="@string/video_upload_url_summary"
+            android:title="@string/video_upload_url_title" />
+
+        <EditTextPreference
+            app:iconSpaceReserved="false"
+            android:dialogLayout="@layout/pref_dialog_edit_password"
+            android:dialogMessage="@string/video_upload_token_dialog"
+            android:inputType="textPassword"
+            android:key="video_upload_token"
+            android:summary="@string/video_upload_token_summary"
+            android:title="@string/video_upload_token_title" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
