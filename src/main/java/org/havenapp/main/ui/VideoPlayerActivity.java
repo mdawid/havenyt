@@ -2,15 +2,15 @@ package org.havenapp.main.ui;
 
 import android.os.Bundle;
 
-import com.halilibo.bettervideoplayer.BetterVideoCallback;
-import com.halilibo.bettervideoplayer.BetterVideoPlayer;
+import com.halilibo.bvpkotlin.VideoCallback;
+import com.halilibo.bvpkotlin.BetterVideoPlayer;
 
 import org.havenapp.main.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class VideoPlayerActivity extends AppCompatActivity implements BetterVideoCallback {
+public class VideoPlayerActivity extends AppCompatActivity implements VideoCallback {
 
     private BetterVideoPlayer player;
 

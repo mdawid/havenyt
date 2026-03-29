@@ -171,7 +171,7 @@ dependencies {
         transitive = true
     }
 
-    implementation 'com.github.halilozercan:BetterVideoPlayer:1.1.0'
+    implementation 'com.github.halilozercan:BetterVideoPlayer:2.0.0-alpha01'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     // jcodec's pure-java video coding replaced by android system encoding
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.21"
