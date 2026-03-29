@@ -43,7 +43,7 @@ allprojects {
         version_number = getVersionName()
         group_info = "haven"
         buildToolsVersion = "30.0.2"
-        minSdkVersion = 16
+        minSdkVersion = 19
         targetSdkVersion = 30
     }
 
@@ -85,7 +85,7 @@ android {
         versionCode 2001
         versionName getVersionName()
         archivesBaseName = "Haven-$versionName"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         ndkVersion '21.3.6528147'
         //ndkPath '/home/n8fr8/Android/Ndk'
