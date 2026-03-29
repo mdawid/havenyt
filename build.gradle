@@ -162,7 +162,7 @@ dependencies {
     implementation 'info.guardianproject.netcipher:netcipher:2.1.0'
     implementation 'org.nanohttpd:nanohttpd-webserver:2.3.1'
     implementation 'me.angrybyte.picker:picker:1.3.1'
-    implementation 'com.github.stfalcon:frescoimageviewer:0.5.0'
+    implementation 'com.github.stfalcon-studio:StfalconImageViewer:1.0.1'
     implementation 'com.facebook.fresco:fresco:2.0.0'
     implementation 'com.github.derlio:audio-waveform:v1.0.1'
     implementation 'com.github.maxyou:SimpleWaveform:7c09b010dd'
