@@ -165,7 +165,7 @@ dependencies {
     implementation 'com.github.stfalcon:frescoimageviewer:0.5.0'
     implementation 'com.facebook.fresco:fresco:2.0.0'
     implementation 'com.github.derlio:audio-waveform:v1.0.1'
-    implementation 'com.maxproj.simplewaveform:app:1.0.0'
+    implementation 'com.github.maxyou:SimpleWaveform:7c09b010dd'
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.12.24'
     implementation('com.mikepenz:aboutlibraries:7.0.3@aar') {
         transitive = true
