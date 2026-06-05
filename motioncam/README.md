@@ -1,6 +1,6 @@
 # MotionCam
 
-Minimalny camera-trap na Androida 10+ (API 29+). Nagrywa krótki film po wykryciu ruchu w kadrze i wrzuca go na udział SMB (np. dysk podłączony do Raspberry Pi przez Sambę).
+Minimalny camera-trap na Androida 8.1+ (API 27+). Nagrywa krótki film po wykryciu ruchu w kadrze i wrzuca go na udział SMB (np. dysk podłączony do Raspberry Pi przez Sambę).
 
 ## Jak to działa
 
@@ -59,7 +59,8 @@ Aplikacja prosi w runtime o:
 - **Doze / battery optimizations**: producenci (Xiaomi, Huawei) potrafią zabijać foreground services. Wyłącz optymalizacje baterii dla MotionCam w ustawieniach systemu.
 - **SMB1**: SMBJ obsługuje tylko SMB2/3. Jeśli Samba na Malinie jest skonfigurowana wyłącznie pod SMB1, dodaj `server min protocol = SMB2` w `/etc/samba/smb.conf`.
 - **Pre-buffer**: nagranie startuje ~200–400 ms po wykryciu (czas na `VideoCapture.prepareRecording().start`). Akceptowalne dla większości scenariuszy, ale szybki obiekt może opuścić kadr.
-- **Combinations**: VideoCapture + ImageAnalysis bind nie działa na wszystkich starszych urządzeniach LEGACY; powinien działać na każdym Androidzie 10+ z hw level LIMITED+.
+- **Combinations**: VideoCapture + ImageAnalysis bind nie działa na wszystkich starszych urządzeniach LEGACY; powinien działać na każdym Androidzie 8.1+ z hw level LIMITED+.
+- **Android 8.1 / 9**: brak systemu typów foreground service — `foregroundServiceType="camera"` w manifeście jest ignorowany (tylko Android 10+ go egzekwuje), kamera z tła działa bez tej kategorii. Powiadomienia kanałów (NotificationChannel) są dostępne od API 26, więc obsługa jest natywna.
 
 ## Roadmap (gdyby się rozbudowywać)
 
